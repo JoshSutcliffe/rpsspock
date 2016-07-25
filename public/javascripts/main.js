@@ -7,6 +7,7 @@ var scissorsButton = document.getElementById('scissors');
 var paperButton = document.getElementById("paper");
 var playerScoreHTML = document.getElementById("player-score");
 var computerScoreHTML = document.getElementById("computer-score");
+var result = document.getElementById("result");
 var random = Math.random();
 var computerSelection;
 
@@ -26,13 +27,13 @@ computerChoice();
 
 var rockClick = function() {
   if (computerSelection === "rock") {
-    alert("It's a tie!");
+    result.innerHTML = "It's a tie!";
   } else if (computerSelection === "scissors") {
-    alert("What a result! Anarchist Android chose " + computerSelection);
+    result.innerHTML = "What a result! Anarchist Android chose " + computerSelection;
     playerScore++
     playerScoreHTML.innerHTML = playerScore;
   } else {
-    alert("Anarchist Android wins this time! He chose " + computerSelection);
+    result.innerHTML = "Anarchist Android wins this time! He chose " + computerSelection;
     computerScore++;
     computerScoreHTML.innerHTML = computerScore;
   };
@@ -44,13 +45,13 @@ rockButton.addEventListener("click", rockClick);
 
 var scissorsClick = function() {
   if (computerSelection === "rock") {
-    alert("Anarchist Android wins this time! He chose " + computerSelection);
+    result.innerHTML = "Anarchist Android wins this time! He chose " + computerSelection;
     computerScore++;
     computerScoreHTML.innerHTML = computerScore;
   } else if (computerSelection === "scissors") {
-    alert("It's a tie!");
+    result.innerHTML = "It's a tie!";
   } else {
-    alert("What a result! Anarchist Android chose " + computerSelection);
+    result.innerHTML = "What a result! Anarchist Android chose " + computerSelection;
     playerScore++;
     playerScoreHTML.innerHTML = playerScore;
   };
@@ -61,16 +62,16 @@ scissorsButton.addEventListener("click", scissorsClick);
 
 var paperClick = function() {
   if (computerSelection === "rock") {
-    alert("What a result! Anarchist Android chose " + computerSelection);
+    result.innerHTML = "What a result! Anarchist Android chose " + computerSelection;
     playerScore++;
     playerScoreHTML.innerHTML = playerScore;
   } else if (computerSelection === "scissors") {
-    alert("Anarchist Android wins this time! He chose " + computerSelection);
+    result.innerHTML = "Anarchist Android wins this time! He chose " + computerSelection;
     computerScore++;
     computerScoreHTML.innerHTML = computerScore;
   } else {
-    alert("It's a tie!");
-  };
+    result.innerHTML = "It's a tie!";
+    };
   computerChoice();
 }
 
