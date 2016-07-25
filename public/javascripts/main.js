@@ -5,22 +5,70 @@ var computerScore = 0;
 var rockButton = document.getElementById("rock");
 var scissorsButton = document.getElementById('scissors');
 var paperButton = document.getElementById("paper");
+var random = Math.random();
+var computerSelection;
+
+// Winning conditions
+// < 0.33 = rock
+// < 0.67 = scissors
+// > 0.67 = paper
+
+var computerChoice = function() {
+  // I had to generate another random here as it was only creating a random number once
+  random = Math.random();
+  if (random < 0.33) {
+    computerSelection = "rock";
+  } else if (random < 0.67) {
+    computerSelection = "scissors";
+  } else {
+    computerSelection = "paper";
+  }
+};
+
+computerChoice();
 
 var rockClick = function() {
-  console.log("clicked on rock");
+  if (computerSelection === "rock") {
+    alert("It's a tie!");
+  } else if (computerSelection === "scissors") {
+    alert("What a result! Anarchist Android chose " + computerSelection);
+  } else {
+    alert("Anarchist Android wins this time! He chose " + computerSelection);
+  };
+  console.log(random);
+  console.log(computerSelection);
+  computerChoice();
   // after a click, call function to find computer score and decide who won
-}
+};
 
 rockButton.addEventListener("click", rockClick);
 
 var scissorsClick = function() {
-  console.log("clicked on scissors");
-}
+  if (computerSelection === "rock") {
+    alert("Anarchist Android wins this time! He chose " + computerSelection);
+  } else if (computerSelection === "scissors") {
+    alert("It's a tie!");
+  } else {
+    alert("What a result! Anarchist Android chose " + computerSelection);
+  };
+  console.log(random);
+  console.log(computerSelection);
+  computerChoice();
+};
 
 scissorsButton.addEventListener("click", scissorsClick);
 
 var paperClick = function() {
-  console.log("clicked on paper");
+  if (computerSelection === "rock") {
+    alert("What a result! Anarchist Android chose " + computerSelection);
+  } else if (computerSelection === "scissors") {
+    alert("Anarchist Android wins this time! He chose " + computerSelection);
+  } else {
+    alert("It's a tie!");
+  };
+  console.log(random);
+  console.log(computerSelection);
+  computerChoice();
 }
 
 paperButton.addEventListener("click", paperClick);
