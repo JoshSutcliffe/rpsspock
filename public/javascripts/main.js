@@ -1,13 +1,12 @@
-console.log("connected");
-
 var playerScore = 0;
 var computerScore = 0;
 var rockButton = document.getElementById("rock");
-var scissorsButton = document.getElementById('scissors');
-var paperButton = document.getElementById("paper");
+var scissorsBtn = document.getElementById('scissors');
+var paperBtn = document.getElementById("paper");
 var playerScoreHTML = document.getElementById("player-score");
 var computerScoreHTML = document.getElementById("computer-score");
 var result = document.getElementById("result");
+var newGameBtn = document.getElementById("new-game");
 var random = Math.random();
 var computerSelection;
 
@@ -60,7 +59,7 @@ var scissorsClick = function() {
   endGame();
 };
 
-scissorsButton.addEventListener("click", scissorsClick);
+scissorsBtn.addEventListener("click", scissorsClick);
 
 var paperClick = function() {
   if (computerSelection === "rock") {
@@ -78,7 +77,7 @@ var paperClick = function() {
   endGame();
 };
 
-paperButton.addEventListener("click", paperClick);
+paperBtn.addEventListener("click", paperClick);
 
 var endGame = function() {
   if (playerScore === 2) {
@@ -97,3 +96,5 @@ var reset = function() {
   computerScoreHTML.innerHTML = computerScore;
   result.innerHTML = "";
 };
+
+newGameBtn.addEventListener("click", reset);
