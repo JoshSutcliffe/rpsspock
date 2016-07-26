@@ -38,6 +38,7 @@ var rockClick = function() {
     computerScoreHTML.innerHTML = computerScore;
   };
   computerChoice();
+  endGame();
   // after a click, call function to find computer score and decide who won
 };
 
@@ -56,6 +57,7 @@ var scissorsClick = function() {
     playerScoreHTML.innerHTML = playerScore;
   };
   computerChoice();
+  endGame();
 };
 
 scissorsButton.addEventListener("click", scissorsClick);
@@ -71,20 +73,27 @@ var paperClick = function() {
     computerScoreHTML.innerHTML = computerScore;
   } else {
     result.innerHTML = "It's a tie!";
-    };
+  };
   computerChoice();
-}
+  endGame();
+};
 
 paperButton.addEventListener("click", paperClick);
 
 var endGame = function() {
   if (playerScore === 2) {
     alert("Congrats! You have won the game! Play again?");
+    reset();
   } else if (computerScore == 2) {
-    alert("Drats, Anarchist Android has won this time! Play again?");
+    alert("Drats, Anarchist Android has won the game! Play again?");
+    reset();
   };
 };
 
 var reset = function() {
-
-}
+  playerScore = 0;
+  playerScoreHTML.innerHTML = playerScore;
+  computerScore = 0;
+  computerScoreHTML.innerHTML = computerScore;
+  result.innerHTML = "";
+};
